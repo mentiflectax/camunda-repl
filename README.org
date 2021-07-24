@@ -1,0 +1,4 @@
+
+Instead of telnet use
+
+~nc localhost 5555~
