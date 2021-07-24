@@ -2,3 +2,5 @@
 Instead of telnet use
 
 ~nc localhost 5555~
+
+https://stackoverflow.com/questions/68496803/is-it-possible-to-modify-clojure-code-running-as-a-spring-component-on-a-remote
