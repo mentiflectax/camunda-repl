@@ -5,6 +5,7 @@ import clojure.lang.IFn;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Service
 public class ClojureRepl {
@@ -13,9 +14,16 @@ public class ClojureRepl {
 
         final IFn require = Clojure.var("clojure.core", "require");
         require.invoke(Clojure.read("com.dpisarenko.camundarepl"));
+        Clojure.var("clojure.core.server", "start-server").invoke(
+                Clojure.read("{:port 5555 :name spring-repl :accept clojure.core.server/repl}")
+        );
 
     }
-    public void destroy() {
 
+    @PreDestroy
+    public void destroy() {
+        Clojure.var("clojure.core.server", "stop-server").invoke(
+                Clojure.read("{:name spring-repl}")
+        );
     }
 }
