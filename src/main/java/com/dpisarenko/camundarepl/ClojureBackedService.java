@@ -8,6 +8,6 @@ import java.math.BigDecimal;
 @Service
 public class ClojureBackedService {
     BigDecimal add(BigDecimal a, BigDecimal b) {
-        return (BigDecimal) Clojure.var("net.ofnir.repl", "add").invoke(a, b);
+        return (BigDecimal) Clojure.var("com.dpisarenko.camundarepl", "add").invoke(a, b);
     }
 }
