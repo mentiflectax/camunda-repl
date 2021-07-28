@@ -15,3 +15,12 @@
     (.setVariable "Heyo" "This was set in Clojure")
     )
   )
+
+(defn sample-function
+  [delEx]
+  (doto
+    delEx
+    (.setVariable "MY_VAR_NAME"
+                  "Some var value")
+    )
+  )
