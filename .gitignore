@@ -1,2 +1,4 @@
 .idea/
 camunda-repl.iml
+target/
+.DS_Store
